@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="ValueObject\" />
   </ItemGroup>
 
 </Project>
