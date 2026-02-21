@@ -16,5 +16,11 @@ namespace ExpenseManagement.Infrastructure.Persistence
         public DbSet<LeaveRequest> LeaveRequests => Set<LeaveRequest>();
         public DbSet<LeaveBalance> LeaveBalances => Set<LeaveBalance>();
         public DbSet<DecisionLog> decisionLogs => Set<DecisionLog>();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
