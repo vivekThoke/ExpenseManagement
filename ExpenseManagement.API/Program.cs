@@ -1,3 +1,4 @@
+using ExpenseManagement.Application.Features.Leave;
 using ExpenseManagement.Domain.Interfaces;
 using ExpenseManagement.Infrastructure.Persistence;
 using ExpenseManagement.Infrastructure.Repositories;
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ILeaveRepository, LeaveRepository>();
 builder.Services.AddScoped<ILeaveBalanceRepository, LeaveBalanceRepository>();
+builder.Services.AddScoped<SubmitLeaveRequestService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
