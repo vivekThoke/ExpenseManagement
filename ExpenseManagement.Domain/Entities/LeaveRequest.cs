@@ -40,6 +40,7 @@ namespace ExpenseManagement.Domain.Entities
             FromDate = formDate;
             ToDate = toDate;
             Reason = reason;
+            AiSummary = string.Empty;
             Status = LeaveStatus.Pending;
             CreatedAt = DateTime.UtcNow;
         }
