@@ -11,10 +11,12 @@ namespace ExpenseManagement.API.Controllers
     public class LeaveController : Controller
     {
         private readonly SubmitLeaveRequestService submitService;
+        private readonly ApproveLeaveRequestService approveLeaveRequestService;
 
-        public LeaveController(SubmitLeaveRequestService submitService)
+        public LeaveController(SubmitLeaveRequestService submitService, ApproveLeaveRequestService approveLeaveRequestService)
         {
             this.submitService = submitService;
+            this.approveLeaveRequestService = approveLeaveRequestService;
         }
 
         [HttpPost("submit")]
@@ -22,6 +24,13 @@ namespace ExpenseManagement.API.Controllers
         {
             var id = await submitService.ExecuteAsync(dto);
             return Ok(new { LeaveRequestId = id });
+        }
+
+        [HttpPost("process")]
+        public async Task<IActionResult> Process(ApproveLeaveRequestDto dto)
+        {
+            await approveLeaveRequestService.ExecuteAsync(dto);
+            return Ok("Leave request approved");
         }
     }
 }
